@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        li {
+            float: left;
+            margin-right: 30px;
+            font-size: 32px;
+            list-style: none;
+        }
+
+        li::after {
+            margin-left: 30px;
+            content: '|';
+        }
+        li:first-of-type::before {
+            margin-right: 30px;
+            content: '시작';
+        }
+        li:last-of-type::after {
+            content: ' ';
+        }
+    </style>
 </head>
 <body>
-    
+    <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ul>
 </body>
 </html>
