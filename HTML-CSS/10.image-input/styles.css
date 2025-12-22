@@ -1,0 +1,7 @@
+.image {
+    width: 400px;
+    height: 700px;
+    object-fit: cover;
+    object-position: right;
+}
+
