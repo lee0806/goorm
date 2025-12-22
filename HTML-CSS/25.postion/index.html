@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box-container {
+            width: 200px;
+            height: 120px;
+            border: 2px solid lightgray;
+        }
+        .box-container div {
+            padding: 10px;
+            border: 1px solid green;
+            background-color: aquamarine;
+        }
+        /* 변화 없음 */
+        #static-box {
+            position: static;
+            top: 20px;
+            left: 30px;
+        }
+        /* 자기 자신을 기준으로 */
+        #relative-box {
+            position: relative;
+            top: 20px;
+            left: 150px;
+        }
+        /* body를 기준으로 */
+        #absolute-box {
+            position: absolute;
+            top: 20px;
+            left: 250px;
+        }
+        /* 고정시켜서 스크롤때도 따라옴 */
+        #fixed-box {
+            position: fixed;
+            top: 100px;
+            left: 220px;
+        }
+        #sticky {
+            position: sticky;
+            top: 100px;
+            padding: 10px;
+            background-color: green;
+        }
+        #relative-box-1 {
+            position: relative;
+            height: 80px;
+            width: 200px;
+            margin-top: 70px;
+            border: 3px solid blue;
+        }
+        #absolute-box-1 {
+            position: absolute;
+            top: 40px;
+            left: 35px;
+            border: 2px solid #ffdddd;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box-container">
+        <div id="static-box">static</div>
+        <div id="relative-box">relative</div>
+        <div id="absolute-box">absolute</div>
+        <div id="fixed-box">fixed</div>
+    </div>
+
+    <div id="relative-box-1">
+        relative
+        <div id="absolute-box-1">
+            absolute
+        </div>
+    </div>
+
+    <div id="sticky">I am sticky!</div>
+    <div style="padding-bottom: 2000px;"></div>
+</body>
+</html>
