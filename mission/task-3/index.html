@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button-parent {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            position: relative;
+            left: 40%;
+            top: 150px;
+            gap: 100px;
+        }
+        .check-button {
+            width: 150px;
+            height: 40px;
+            background-color: #4593fc;
+            border: none;
+            border-radius: 15px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .check-button:hover {
+            background-color: #2c84f8;
+        }
+        .cancel-button {
+            width: 150px;
+            height: 40px;
+            background-color: #b0b8c1;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .cancel-button:hover {
+            background-color: #8b95a1;
+        }
+    </style>
+</head>
+<body style="background-color: rgb(255, 243, 227);">
+    <div class="button-parent">
+        <button class="check-button">확인</button>
+        <button class="cancel-button">취소</button>
+    </div>
+</body>
+</html>
