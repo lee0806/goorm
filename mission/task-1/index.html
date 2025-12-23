@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>youtube</title>
+    <style>
+        .youtube {
+            position: absolute;
+            left: 15%;
+            top: 150px;
+            
+        }
+        
+        @media (min-width:1100px) {
+            .video {
+                width: 850px;
+                height: 450px;
+            }
+            .title {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }   
+        }
+
+        @media (min-width:500px) and (max-width:1100px) {
+            .video {
+                width: 600px;
+                height: 400px;
+            }
+            .title {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 1rem;
+                font-weight: 700;
+                text-align: center;
+            }
+        }
+
+        @media (max-width:499px) {
+            .youtube {
+                position: absolute;
+                left: 10%;
+                top: 150px;
+                
+            }
+            .video {
+                width: 350px;
+                height: 250px;
+            }
+            .title {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 0.6rem;
+                font-weight: 700;
+                text-align: center;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="youtube">
+        <iframe class="video" src="https://www.youtube.com/embed/f1sr0D13wEY?si=XfgaMnsoKsoHXFvQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="title">
+            🔗한로로 - 사랑하게 될 거야ㅣ잔나비 ➡ 한로로ㅣ#라이브와이어 3화 | Mnet 250704 방송
+        </div>
+    </div>
+    
+</body>
+</html>
