@@ -36,7 +36,7 @@ function startTimer() { // startTimer의 대한 함수
         timeSecond++; // 초를 1 올리고
         second.innerHTML = timeSecond; // innerHTML로 삽입
         timeTen = 0; // 이후 밀리초를 0으로
-        ten.innerHTML = 0; // innerHTML을 통해 웹에서도 0으로
+        ten.innerHTML = 0; // innerHTML을 통해 웹에서도 
     }
 }
 
