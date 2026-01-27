@@ -1,0 +1,30 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.content-container {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sign {
+  padding: 10px 50px;
+  background-color: red;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.login {
+  border: 0.5px solid white;
+  padding: 10px 25px;
+  border-radius: 2px;
+}
