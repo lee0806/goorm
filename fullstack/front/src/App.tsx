@@ -1,11 +1,13 @@
 import './App.css'
 
 function App() {
-    const title : string = "name";
-
+    
   return (
     <>
-      <p>{title}</p>
+      <div>
+        <h1>Header</h1>
+        <button>로그인 버튼</button>
+      </div>
     </>
   )
 }
