@@ -18,7 +18,13 @@
 }
 
 .movie-card {
-  height: 168px;
-  width: 299px;
-  background-color: black;
+  display: grid;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  gap: 10px;
+}
+
+.movie-item {
+  color: white;
+  justify-items: center;
 }

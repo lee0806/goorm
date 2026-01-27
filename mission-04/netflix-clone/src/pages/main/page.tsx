@@ -1,7 +1,30 @@
-import React from "react";
-import "./main.css";
+"use client";
 
-export default function page() {
+import React from "react";
+import Image from "next/image";
+import instance from "../../api/axios";
+import requests from "../../api/request";
+import "./main.css";
+import { useEffect, useState } from "react";
+
+type Movie = {
+  id: number;
+  title: string;
+  poster_path: string;
+};
+
+export default function Page() {
+  const [movies, setMovies] = useState<Movie[]>([]);
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const res = await instance.get(requests.fetchTopRated);
+      setMovies(res.data.results);
+    };
+    fetchMovies();
+  }, []);
+
+  console.log(movies);
   return (
     <div className="main-container">
       <h1 style={{ color: "white", fontSize: "52px", marginBottom: "10px" }}>
@@ -21,7 +44,37 @@ export default function page() {
         <div className="title-describe">
           꼭 챙겨보세요! 회원님을 위한 컨텐츠
         </div>
-        <div className="movie-card"></div>
+        <div className="movie-card">
+          {movies.map((movie) => (
+            <div key={movie.id} className="movie-item">
+              <Image
+                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                alt={movie.title}
+                width={200}
+                height={300}
+              />
+              <p>{movie.title}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="content-card-section">
+        <div className="title-describe">
+          언제나 사랑받는 로맨스 콘텐츠
+        </div>
+        <div className="movie-card">
+          {movies.map((movie) => (
+            <div key={movie.id} className="movie-item">
+              <Image
+                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                alt={movie.title}
+                width={200}
+                height={300}
+              />
+              <p>{movie.title}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
