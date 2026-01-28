@@ -2,10 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
-import instance from "../../api/axios";
-import requests from "../../api/request";
+import { fetchTopRated, fetchRomanceMovies } from "@/api/movie";
+import { useQuery } from "@tanstack/react-query";
 import "./main.css";
-import { useEffect, useState } from "react";
 
 type Movie = {
   id: number;
@@ -14,17 +13,32 @@ type Movie = {
 };
 
 export default function Page() {
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const {
+    data: topRatedData,
+    isLoading: isTopRatedLoading,
+    isError: isTopRatedError,
+  } = useQuery<Movie[]>({
+    queryKey: ["topRatedMovies"],
+    queryFn: fetchTopRated,
+  });
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const res = await instance.get(requests.fetchTopRated);
-      setMovies(res.data.results);
-    };
-    fetchMovies();
-  }, []);
+  const {
+    data: romanceData,
+    isLoading: isRomanceLoading,
+    isError: isRomanceError,
+  } = useQuery<Movie[]>({
+    queryKey: ["romanceMovies"],
+    queryFn: fetchRomanceMovies,
+  });
 
-  console.log(movies);
+  if (isTopRatedLoading || isRomanceLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isTopRatedError || isRomanceError) {
+    return <div>Error occurred while fetching data.</div>;
+  }
+
   return (
     <div className="main-container">
       <h1 style={{ color: "white", fontSize: "52px", marginBottom: "10px" }}>
@@ -45,7 +59,7 @@ export default function Page() {
           꼭 챙겨보세요! 회원님을 위한 컨텐츠
         </div>
         <div className="movie-card">
-          {movies.map((movie) => (
+          {topRatedData?.map((movie) => (
             <div key={movie.id} className="movie-item">
               <Image
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
@@ -59,11 +73,9 @@ export default function Page() {
         </div>
       </div>
       <div className="content-card-section">
-        <div className="title-describe">
-          언제나 사랑받는 로맨스 콘텐츠
-        </div>
+        <div className="title-describe">언제나 사랑받는 로맨스 콘텐츠</div>
         <div className="movie-card">
-          {movies.map((movie) => (
+          {romanceData?.map((movie) => (
             <div key={movie.id} className="movie-item">
               <Image
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
