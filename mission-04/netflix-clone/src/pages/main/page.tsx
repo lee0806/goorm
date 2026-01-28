@@ -14,28 +14,30 @@ type Movie = {
 
 export default function Page() {
   const {
-    data: topRatedData,
-    isLoading: isTopRatedLoading,
-    isError: isTopRatedError,
+    data: topRatedData, // top rate 데이터
+    isLoading: isTopRatedLoading, // 로딩일때
+    isError: isTopRatedError, // 에러가 나왔을 때
   } = useQuery<Movie[]>({
-    queryKey: ["topRatedMovies"],
-    queryFn: fetchTopRated,
+    queryKey: ["topRatedMovies"], // 고유 키
+    queryFn: fetchTopRated, // 동작 함수 (api를 요청해 데이터를 불러옴)
   });
 
   const {
-    data: romanceData,
-    isLoading: isRomanceLoading,
-    isError: isRomanceError,
+    data: romanceData, // romance 데이터
+    isLoading: isRomanceLoading, // 로딩일때
+    isError: isRomanceError, // 에러가 나왔을 때
   } = useQuery<Movie[]>({
-    queryKey: ["romanceMovies"],
-    queryFn: fetchRomanceMovies,
+    queryKey: ["romanceMovies"], // 고유 키
+    queryFn: fetchRomanceMovies, // 동작 함수 (api를 요청해 데이터를 불러옴)
   });
 
   if (isTopRatedLoading || isRomanceLoading) {
+    // 로딩 중일 때
     return <div>Loading...</div>;
   }
 
   if (isTopRatedError || isRomanceError) {
+    // 에러가 나왔을 때
     return <div>Error occurred while fetching data.</div>;
   }
 
