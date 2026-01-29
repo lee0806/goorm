@@ -3,7 +3,7 @@ import Image from "next/image";
 import { fetchTopRated } from "@/api/movie";
 import { useQuery } from "@tanstack/react-query";
 import "./topRatedData.css";
-
+import { useRouter } from "next/navigation";
 type Movie = {
   id: number;
   title: string;
@@ -11,6 +11,7 @@ type Movie = {
 };
 
 export default function TopRatedData({ title }: { title: string }) {
+  const router = useRouter();
   const {
     data: topRatedData, // top rate 데이터
     isLoading: isTopRatedLoading, // 로딩일때
@@ -27,13 +28,16 @@ export default function TopRatedData({ title }: { title: string }) {
   if (isTopRatedError) {
     return <div>Error</div>;
   }
-
   return (
     <div className="content-card-section">
       <div className="title-describe">{title}</div>
       <div className="movie-card">
         {topRatedData?.map((movie) => (
-          <div key={movie.id} className="movie-item">
+          <div
+            key={movie.id}
+            className="movie-item"
+            onClick={() => router.push(`/movie/${movie.id}`)}
+          >
             <Image
               src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
               alt={movie.title}
