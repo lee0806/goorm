@@ -1,16 +1,25 @@
 "use client";
 
 import React from "react";
+import { useAuth } from "@/context/AuthContext";
 import Header from "../components/header/header";
 import TopRatedData from "../components/topRatedData/topRatedData";
 import RomanceData from "../components/romanceData/romanceData";
 import "./main.css";
 
 export default function Page() {
+  const { email } = useAuth();
   return (
     <>
       <Header></Header>
       <div className="main-container">
+        {email && (
+          <div className="welcome-message">
+            <span>{email}</span>
+            님, 환영합니다!
+          </div>
+        )}
+
         <h1 style={{ color: "white", fontSize: "52px", marginBottom: "10px" }}>
           TV 드라마
         </h1>
