@@ -9,4 +9,11 @@ const instance = axios.create({
   },
 });
 
+instance.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    console.error("API 요청에 문제가 있습니다.", error);
+  },
+);
+
 export default instance; // 인스턴스 내보내기
