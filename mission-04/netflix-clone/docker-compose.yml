@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  netflix-clone: # 서비스 이름
+    build:
+      context: . # 빌드 경로
+      dockerfile: Dockerfile # 도커파일
+    container_name: netflix-clone # 컨테이너 이름
+    ports: # 포트 지정
+      - "3000:3000"
+    environment: # 환경 변수
+      - NEXT_PUBLIC_TMDB_API_KEY=${NEXT_PUBLIC_TMDB_API_KEY}
+    restart: unless-stopped # 재시작
