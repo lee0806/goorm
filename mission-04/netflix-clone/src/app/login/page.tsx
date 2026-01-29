@@ -1,8 +1,14 @@
-import React from "react";
+"use client";
+
+import { useState } from "react";
+import { useAuth } from "@/context/AuthContext"; // 전역 컨텍스트
 import "./login.css";
-import Header from "../components/header/header";
 
 export default function Login() {
+  const { email, setEmail } = useAuth(); // email과 setEmail을 가져옴
+  const [localEmail, setLocalEmail] = useState("");
+
+  console.log(email);
   return (
     <>
       <div className="login-container">
@@ -31,8 +37,18 @@ export default function Login() {
             className="input-email"
             type="text"
             placeholder="이메일을 입력해주세요"
+            value={localEmail} // 로컬 사용자 입력 값
+            onChange={(e) => setLocalEmail(e.target.value)} // 입력이 바뀔때마다 로컬 상태가 바뀜
           />
-          <div className="login-button">로그인할게요</div>
+          <div
+            className="login-button"
+            onClick={() => {
+              setEmail(localEmail); // 입력이 끝난 후 로컬 값을 전역 상태로 저장
+              console.log("저장된 email :", email);
+            }}
+          >
+            로그인할게요
+          </div>
         </div>
       </div>
     </>
