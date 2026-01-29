@@ -1,16 +1,3 @@
-.main-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 64px;
-  padding: 56px;
-  gap: 50px;
-}
-
-.title-describe {
-  color: white;
-  font-size: 19px;
-}
-
 .content-card-section {
   display: flex;
   flex-direction: column;

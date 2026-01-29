@@ -1,0 +1,17 @@
+.content-card-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.movie-card {
+  display: grid;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  gap: 10px;
+}
+
+.movie-item {
+  color: white;
+  justify-items: center;
+}

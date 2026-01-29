@@ -1,7 +1,12 @@
+"use client";
+
 import React from "react";
 import "./header.css";
+import { useRouter } from "next/navigation";
 
-export default function page() {
+export default function Header() {
+  const router = useRouter();
+
   return (
     <div className="header-container">
       <div className="logo">
@@ -26,7 +31,9 @@ export default function page() {
       <div className="content-container">
         <p style={{ fontSize: "12px" }}>무제한으로 즐기는 시리즈와 영화</p>
         <div className="sign">지금 가입하기</div>
-        <div className="login">로그인</div>
+        <button className="login" onClick={() => router.push("/login")}>
+          로그인
+        </button>
       </div>
     </div>
   );
